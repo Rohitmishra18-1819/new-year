@@ -1,0 +1,148 @@
+/* ===== PAGE BACKGROUND ===== */
+.album-page {
+  min-height: 100vh;
+  padding-top: 60px;
+
+  background:
+    linear-gradient(rgba(123, 30, 60, 0.85), rgba(201, 75, 106, 0.85)),
+    url("./assets/image/heartImage.avif");
+
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  background-position: center;
+
+  animation: heartMove 25s linear infinite;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes heartMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 300px 300px;
+  }
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: white;
+  color: #7b1e3c;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== TITLE ===== */
+.album-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff4d6d;
+  text-shadow: 0 0 15px #ff4d6d;
+  margin-bottom: 20px;
+  font-family: "Comic Sans MS", cursive;
+}
+
+/* ===== GRID ===== */
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  padding: 20px;
+}
+
+/* ===== POLAROID ===== */
+.polaroid-card {
+  width: 200px;
+  background: white;
+  padding: 12px 12px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.polaroid-card:hover {
+  transform: scale(1.1);
+}
+
+.polaroid-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.polaroid-text {
+  margin-top: 8px;
+  text-align: center;
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+/* RANDOM ROTATION */
+.rotate-0 { transform: rotate(-6deg); }
+.rotate-1 { transform: rotate(4deg); }
+.rotate-2 { transform: rotate(-3deg); }
+.rotate-3 { transform: rotate(6deg); }
+.rotate-4 { transform: rotate(-4deg); }
+.rotate-5 { transform: rotate(2deg); }
+
+/* ===== MODAL ===== */
+.album-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.album-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  max-width: 90%;
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.album-modal-content img {
+  width: 100%;
+  max-height: 60vh;
+  border-radius: 12px;
+}
+
+.modal-shayari {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-style: italic;
+  background: linear-gradient(135deg, #ff2a6d, #ffb703);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CLOSE BUTTON */
+.album-modal-content button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff2a6d, #ffd36e);
+  color: white;
+  cursor: pointer;
+}
