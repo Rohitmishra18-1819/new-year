@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ScratchCard from "./ScratchCard";
-import giftImg from "../image/Gift.png";
-
-import heartImg from "../image/smile1.jpg";
+import giftImg from "../../image/Gift.png";
+import heartImg from "../../image/smile1.jpg";
 import "./GiftFlow.css";
 
 export default function GiftReveal({ onAlbum, onMusic }) {
