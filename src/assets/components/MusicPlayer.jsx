@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import albumData from "../data/album";   // 🔁 adjust path if needed
+import albumData from "../data/album";
 import "./MusicPlayer.css";
 
 export default function MusicPlayer({ onBack }) {
@@ -15,23 +15,22 @@ export default function MusicPlayer({ onBack }) {
   };
 
   return (
-    <div className="music-page">
-
+    <div className="music-page gallery-bg-animated">
+      
       {/* 🔙 BACK */}
       <button className="back-btn" onClick={onBack}>⬅ Back</button>
 
-    {/* 🎵 HEADER */}
-<div className="music-header-wrap">
-  <h1 className="music-header-text">
-    🎧 Our Music Playlist 🎧
-  </h1>
-</div>
+      {/* 🎧 HEADER */}
+      <div className="music-header-wrap">
+        <h1 className="music-header-text">
+          🎧 Our Music Playlist 🎧
+        </h1>
+      </div>
 
       {/* 🎶 SONG LIST */}
       <div className="music-list">
         {albumData.map((item, index) => (
-          <div key={item.id} className="music-card">
-
+          <div className="music-card" key={item.id}>
             <div className="music-info">
               <span className="music-icon">🎶</span>
               <span className="song-name">{item.songName}</span>
