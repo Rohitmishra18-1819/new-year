@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import albumData from "../data/album";
 import "./MusicPlayer.css";
 
-
 export default function MusicPlayer({ onBack }) {
   const audioRefs = useRef([]);
   const [currentPlaying, setCurrentPlaying] = useState(null);
