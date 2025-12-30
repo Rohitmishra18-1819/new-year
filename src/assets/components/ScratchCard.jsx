@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import scratchImg from "../image/scratch.png";
 
+
 export default function ScratchCard({ onDone }) {
   const canvasRef = useRef(null);
   const [completed, setCompleted] = useState(false);
@@ -21,40 +22,27 @@ export default function ScratchCard({ onDone }) {
     };
   }, []);
 
-  const getPos = (e) => {
-    const rect = canvasRef.current.getBoundingClientRect();
-    return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
-  };
-
   const scratch = (e) => {
     if (completed) return;
-
+    const rect = canvasRef.current.getBoundingClientRect();
     const ctx = canvasRef.current.getContext("2d");
-    const { x, y } = getPos(e);
 
     ctx.beginPath();
-    ctx.arc(x, y, 22, 0, Math.PI * 2);
+    ctx.arc(
+      e.clientX - rect.left,
+      e.clientY - rect.top,
+      22,
+      0,
+      Math.PI * 2
+    );
     ctx.fill();
 
-    checkProgress();
-  };
-
-  const checkProgress = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-
+    const pixels = ctx.getImageData(0, 0, 300, 150).data;
     let cleared = 0;
     for (let i = 3; i < pixels.length; i += 4) {
       if (pixels[i] === 0) cleared++;
     }
-
-    const percent = cleared / (canvas.width * canvas.height);
-
-    if (percent > 0.4 && !completed) {
+    if (cleared / (300 * 150) > 0.4 && !completed) {
       setCompleted(true);
       onDone();
     }
@@ -63,13 +51,8 @@ export default function ScratchCard({ onDone }) {
   return (
     <canvas
       ref={canvasRef}
-      style={{
-        borderRadius: "15px",
-        touchAction: "none",
-        userSelect: "none",
-        cursor: "default",
-      }}
-      onPointerMove={scratch}   // ✅ KEY FIX
+      onPointerMove={scratch}
+      style={{ borderRadius: "15px", touchAction: "none" }}
     />
   );
 }
