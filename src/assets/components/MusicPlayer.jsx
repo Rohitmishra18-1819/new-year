@@ -16,14 +16,21 @@ export default function MusicPlayer({ onBack }) {
 
   return (
     <div className="music-page gallery-bg-animated">
-      <button className="back-btn" onClick={onBack}>⬅ Back</button>
+      <button className="back-btn" onClick={onBack}>
+        ⬅ Back
+      </button>
 
-      <h1 className="music-header-text">🎧 Our Music Playlist 🎧</h1>
+      <div className="music-header-wrap">
+        <h1 className="music-header-text">🎧 Our Music Playlist 🎧</h1>
+      </div>
 
       <div className="music-list">
         {albumData.map((item, index) => (
           <div className="music-card" key={item.id}>
-            <span>{item.songName}</span>
+            <div className="music-info">
+              <span className="music-icon">🎶</span>
+              <span className="song-name">{item.songName}</span>
+            </div>
 
             <audio
               controls

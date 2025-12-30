@@ -6,6 +6,7 @@ import heartImg from "../image/smile1.jpg";
 
 import "./GiftFlow.css";
 
+
 export default function GiftReveal({ onAlbum, onMusic }) {
   const [giftOpened, setGiftOpened] = useState(false);
   const [showScratch, setShowScratch] = useState(false);
@@ -18,6 +19,7 @@ export default function GiftReveal({ onAlbum, onMusic }) {
         backgroundImage: `url(${heartImg})`,
       }}
     >
+      {/* STEP 1: GIFT IMAGE */}
       {!giftOpened && (
         <div className="gift-center">
           <h1 className="gift-title">🎁 Tap the Gift 🎁</h1>
@@ -31,6 +33,7 @@ export default function GiftReveal({ onAlbum, onMusic }) {
         </div>
       )}
 
+      {/* STEP 2 */}
       {giftOpened && !showScratch && (
         <div className="gift-center">
           <h1 className="gift-title">🎉 Happy New Year Sona ❤️</h1>
@@ -42,6 +45,7 @@ export default function GiftReveal({ onAlbum, onMusic }) {
         </div>
       )}
 
+      {/* STEP 3 */}
       {showScratch && !scratched && (
         <div className="gift-center">
           <h1 className="gift-title">✨ Scratch to Reveal ✨</h1>
@@ -49,6 +53,7 @@ export default function GiftReveal({ onAlbum, onMusic }) {
         </div>
       )}
 
+      {/* STEP 4 */}
       {scratched && (
         <div className="gift-center">
           <h1 className="gift-title">💖 Choose Your Surprise 💖</h1>
