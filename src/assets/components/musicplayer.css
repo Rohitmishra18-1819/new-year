@@ -1,33 +1,30 @@
-/* ===== MUSIC PAGE BACKGROUND ===== */
-.music-page {
+/* ===== SAME AS GALLERY BACKGROUND ===== */
+.gallery-bg-animated {
   min-height: 100vh;
+  width: 100%;
   padding: 70px 20px 30px;
 
-  /* ❤️ HEART BACKGROUND */
-  background:
-    linear-gradient(rgba(28, 44, 29, 0.85), rgba(146, 141, 171, 0.85)),
-    url("./assets/heartImage.avif");
+  background: linear-gradient(
+    180deg,
+    #7b1e3c,
+    #8f294b,
+    #6a1831,
+    #4a0f22
+  );
 
-  background-size: 280px 280px;
-  background-repeat: repeat;
-  background-position: center;
-
-  animation: heartMove 25s linear infinite;
-
-  color: white;
+  background-size: 100% 300%;
+  animation: gradientMove 10s ease-in-out infinite;
+  color: #fff;
 }
 
-/* ❤️ Background Animation */
-@keyframes heartMove {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 280px 280px;
-  }
+/* 🔥 UP–DOWN GRADIENT ANIMATION */
+@keyframes gradientMove {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
-/* ===== HEADER WRAPPER ===== */
+/* ===== HEADER ===== */
 .music-header-wrap {
   max-width: 520px;
   margin: 0 auto 35px;
@@ -38,10 +35,9 @@
   text-align: center;
   border-radius: 18px;
 
-  box-shadow: 0 10px 30px rgba(145, 21, 21, 0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* ===== HEADER TEXT ===== */
 .music-header-text {
   margin: 0;
   font-size: 2.2rem;
@@ -49,10 +45,8 @@
   color: #ffe066;
 
   text-shadow:
-    0 0 8px rgba(255, 224, 102, 0.8),
-    0 0 16px rgba(255, 77, 109, 0.8);
-
-  font-family: "Poppins", "Segoe UI", sans-serif;
+    0 0 8px rgba(255,224,102,0.8),
+    0 0 16px rgba(255,77,109,0.8);
 }
 
 /* ===== MUSIC LIST ===== */
@@ -63,19 +57,18 @@
 
 /* ===== MUSIC CARD ===== */
 .music-card {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 14px 16px;
   margin-bottom: 18px;
 
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .music-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
 }
 
 /* ===== SONG INFO ===== */
@@ -87,21 +80,19 @@
 }
 
 .music-icon {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .song-name {
   font-size: 1.05rem;
   font-weight: 600;
   color: #ffe066;
-  text-shadow: 0 0 6px rgba(255, 224, 102, 0.6);
 }
 
-/* ===== AUDIO PLAYER ===== */
+/* ===== AUDIO ===== */
 .music-card audio {
   width: 100%;
   border-radius: 10px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
 }
 
 /* ===== BACK BUTTON ===== */
@@ -110,7 +101,7 @@
   top: 12px;
   left: 12px;
 
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.9);
   color: #7b1e3c;
 
   border: none;
@@ -124,6 +115,5 @@
 
 .back-btn:hover {
   background: #ff4d6d;
-  color: white;
-  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+  color: #fff;
 }

@@ -18,7 +18,9 @@ export default function MusicPlayer({ onBack }) {
     <div className="music-page gallery-bg-animated">
       
       {/* 🔙 BACK */}
-      <button className="back-btn" onClick={onBack}>⬅ Back</button>
+      <button className="back-btn" onClick={onBack}>
+        ⬅ Back
+      </button>
 
       {/* 🎧 HEADER */}
       <div className="music-header-wrap">
